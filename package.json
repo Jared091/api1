@@ -9,9 +9,7 @@
     "web": "expo start --web",
     "test": "jest",
     "build": "expo build",
-    "start:both": "npm-run-all --parallel start-api start-web",
-    "start-web": "expo start --web",
-    "start-api": "node src/server/server.js"
+    "start-api": "node server.js"
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
