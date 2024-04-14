@@ -9,8 +9,8 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const sequelize = new Sequelize('id22040817_tecbartender', 'id22040817_admin1', 'Halohalo66!', {
-  host: 'localhost',
+const sequelize = new Sequelize('uniutvts_bartender', 'uniutvts_admin', 'Holahola!1212', {
+  host: '50.6.138.106',
   dialect: 'mysql',
 });
 
