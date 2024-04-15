@@ -6,9 +6,7 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-// Middleware de CORS global permitiendo acceso desde cualquier origen
 app.use(cors());
-
 app.use(bodyParser.json());
 
 const sequelize = new Sequelize('uniutvts_bartender', 'uniutvts_admin', 'Holahola!1212', {
