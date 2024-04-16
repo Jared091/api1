@@ -144,7 +144,7 @@ app.post('/pedido', async (req, res) => {
       return;
     }
 
-    if (producto.Stock <= 0) {
+    if (producto.Stock == 0) {
       res.status(400).json({ success: false, message: 'La bebida seleccionada no está disponible' });
       return;
     }
