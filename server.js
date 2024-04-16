@@ -139,18 +139,28 @@ app.post('/pedido', async (req, res) => {
   try {
     const producto = await Producto.findByPk(ID_Producto);
 
-    if (!producto || producto.Stock <= 0) {
+    if (!producto) {
+      res.status(404).json({ success: false, message: 'El producto no existe' });
+      return;
+    }
+
+    if (producto.Stock <= 0) {
       res.status(400).json({ success: false, message: 'La bebida seleccionada no está disponible' });
       return;
     }
 
+    // Realizar el pedido
     await Producto.update({ Stock: producto.Stock - 1 }, { where: { ID_Producto } });
+    
+    // Puedes agregar cualquier otra lógica necesaria aquí, como enviar una señal al dispositivo Arduino confirmando el pedido
+    
     res.status(200).json({ success: true, message: 'Pedido realizado exitosamente' });
   } catch (error) {
     console.error('Error al realizar el pedido:', error);
     res.status(500).json({ success: false, message: 'Error del servidor' });
   }
 });
+
 
 app.get('/usuario', async (req, res) => {
   const { email } = req.query;
